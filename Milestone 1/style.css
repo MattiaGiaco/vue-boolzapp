@@ -7,3 +7,30 @@
 body{
   font-family: Arial, Helvetica, sans-serif;
 }
+
+#app{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom, #009688 0px, #009688 15vh, #D9DBD5 15vh, #D9DBD5 100%);
+}
+
+.wrapper{
+  display: flex;
+  width: 80%;
+  height: 97%;
+}
+
+.info{
+  width: 35%;
+  height: 100%;
+  background-color: cornflowerblue;
+}
+
+.chat{
+  width: 65%;
+  height: 100%;
+  background-color: darkgoldenrod;
+}
