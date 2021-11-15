@@ -4,18 +4,93 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css">
   <title>Boolzapp</title>
 </head>
 <body>
 
   <div id="app">
-
+    
     <div class="wrapper">
 
-      <div class="info"></div>
+      <!-- INFO -->
+      <div class="info">
 
-      <div class="chat"></div>
+        <div class="info-header">
+
+          <div class="user">
+            <img src="/img/avatar_io.jpg" alt="">
+            <span>Nome Utente</span>
+          </div>
+
+          <div class="user-option">
+            <button><i class="fas fa-circle-notch"></i></button>
+            <button><i class="fas fa-comment-alt"></i></button>
+            <button><i class="fas fa-ellipsis-v"></i></button>
+          </div>
+
+        </div>
+
+        <div class="notifications">
+          <i class="fas fa-bell-slash"></i>
+          <div class="notifications-text">
+            <p>Ricevi notifiche di nuovi messaggi</p>
+            <a href="#">Attiva notifiche desktop</a>
+          </div>
+        </div>
+
+        <form class="search">
+          <button><i class="fas fa-search"></i></button>
+          <input type="search" placeholder="Cerca o inizia una nuova chat" >
+        </form>
+
+        <div class="contacts">
+          <ul>
+            <li>
+              <div class="contact">
+                <img src="/img/avatar_1.jpg" alt="">
+                <div>
+                  <span><strong>Michele</strong></span>
+                  <p class="gray-text">Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+              <div>
+                <span class="gray-text">data</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- CHAT -->
+      <div class="chat">
+
+        <div class="chat-header">
+          <div class="contact">
+            <img src="/img/avatar_1.jpg" alt="">
+            <span>Michele</span>
+          </div>
+
+          <div class="chat-option">
+            <button><i class="fas fa-search"></i></button>
+            <button><i class="fas fa-paperclip"></i></button>
+            <button><i class="fas fa-ellipsis-v"></i></button>
+          </div>
+        </div>
+
+        <div class="chat-main">
+
+        </div>
+
+        <div class="chat-input">
+          <button><i class="far fa-smile"></i></button>
+          <input type="text" placeholder="Scrivi un messaggio">
+          <button><i class="fas fa-microphone"></i></i></button>
+        </div>
+
+      </div>
 
     </div>
 
