@@ -87,6 +87,7 @@ const app = new Vue({
 				}
 			],
 			newMessage: {
+				date: 'date',
 				message: '',
 				status: 'sent'
 			},
@@ -101,6 +102,7 @@ const app = new Vue({
 				if(this.newMessage.message != 0){
 					this.contacts[this.activeContact].messages.push(this.newMessage);
 					this.newMessage= {
+						date: '',
 						message: '',
 						status: 'sent'
 					}

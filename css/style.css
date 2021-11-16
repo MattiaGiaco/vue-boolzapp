@@ -143,8 +143,8 @@ body{
   border-bottom: none;
 }
 
-.info .contacts ul li .active{
-  background-color: #b1b1b1;
+.active{
+  background-color: #D9DBD5;
 }
 
 .info .contacts ul li:hover{
