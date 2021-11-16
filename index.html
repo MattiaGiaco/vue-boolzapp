@@ -50,13 +50,16 @@
 
         <div class="contacts">
           <ul>
-            <li class="flex-between" v-for= "(contact, index) in contacts">
+            <li 
+            class="flex-between" 
+            v-for= "(contact, index) in contacts"
+            @click="showContact(index)">
               <div class="contact">
-                <img :src="'/img/avatar' + contact.avatar + '.jpg'" alt="">
+                <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
                 <div>
                   <h4>{{contact.name}}</h4>
                   <p class="gray-text">
-                    {{contact.messages[contact.messages.length - 1].text.slice(0, 20)}}...
+                    {{contact.messages[contact.messages.length - 1].message.slice(0,15)}}...
                   </p>
                 </div>
               </div>         
@@ -74,8 +77,9 @@
           <div class="contact flex-center">
             <img src="/img/avatar_1.jpg" alt="">
             <div>
-              <h4>Michele</h4>
-              <p class="gray-text">Ultimo accesso</p>
+              <h4>{{contacts[activeContact].name}}</h4>
+              
+              <p class="gray-text">Ultimo accesso: {{}}</p>
             </div>
             
           </div>
@@ -89,13 +93,10 @@
 
         <div class="chat-main">
           <div class="messages flex-between">
-            <div class="flex-center message sent">
-              <h4>Come stai?</h4>
-              <span class="gray-text date">date</span>
-            </div>
-            <div class="flex-center message recived">
-              <h4>Tutto ok!</h4>
-              <span class="gray-text date">date</span>
+            <div v-for="message in contacts[activeContact].messages" class="flex-center message"
+            :class="(message.status === 'sent') ? 'sent' : 'recived'">
+              <h4>{{message.message}}</h4>
+              <span class="gray-text date">{{message.date}}</span>
             </div>
           </div>
         </div>

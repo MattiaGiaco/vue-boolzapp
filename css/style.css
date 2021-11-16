@@ -136,6 +136,20 @@ body{
 
 .info .contacts ul li{
   padding: 10px;
+  border-bottom: 1px solid #f3edeb;
+}
+
+.info .contacts ul li:last-child{
+  border-bottom: none;
+}
+
+.info .contacts ul li .active{
+  background-color: #b1b1b1;
+}
+
+.info .contacts ul li:hover{
+  background-color: #ebece7;
+  cursor: pointer;
 }
 
 .info .contacts ul li img{
@@ -221,7 +235,7 @@ body{
 }
 
 .message .date{
-  margin-top: 30px;
+  margin-top: 25px;
   font-size: 10px;
 }
 
