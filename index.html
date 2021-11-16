@@ -4,27 +4,30 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Acme&family=Lato&family=Rubik&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
   <title>Boolzapp</title>
 </head>
 <body>
 
-  <div id="app">
+  <div id="app" class="flex-center">
     
     <div class="wrapper">
 
       <!-- INFO -->
       <div class="info">
 
-        <div class="info-header">
+        <div class="info-header flex-between">
 
-          <div class="user">
+          <div class="user flex-center">
             <img src="/img/avatar_io.jpg" alt="">
-            <span>Nome Utente</span>
+            <h3>Nome Utente</h3>
           </div>
 
-          <div class="user-option">
+          <div class="user-option flex-center">
             <button><i class="fas fa-circle-notch"></i></button>
             <button><i class="fas fa-comment-alt"></i></button>
             <button><i class="fas fa-ellipsis-v"></i></button>
@@ -32,10 +35,10 @@
 
         </div>
 
-        <div class="notifications">
+        <div class="notifications flex-center">
           <i class="fas fa-bell-slash"></i>
           <div class="notifications-text">
-            <p>Ricevi notifiche di nuovi messaggi</p>
+            <h4>Ricevi notifiche di nuovi messaggi</h4>
             <a href="#">Attiva notifiche desktop</a>
           </div>
         </div>
@@ -47,19 +50,17 @@
 
         <div class="contacts">
           <ul>
-            <li v-for= "(item, index) in contacts">
+            <li class="flex-between" v-for= "(contact, index) in contacts">
               <div class="contact">
-                <img :src="'/img/avatar' + item.avatar + '.jpg'" alt="">
+                <img :src="'/img/avatar' + contact.avatar + '.jpg'" alt="">
                 <div>
-                  <span><strong>{{item.name}}</strong></span>
+                  <h4>{{contact.name}}</h4>
                   <p class="gray-text">
-                    {{item.messages[item.messages.length - 1].text.slice(0, 20)}}...
+                    {{contact.messages[contact.messages.length - 1].text.slice(0, 20)}}...
                   </p>
                 </div>
-              </div>
-              <div>
-                <span class="gray-text">{{item.messages[item.messages.length - 1].date}}</span>
-              </div>
+              </div>         
+              <span class="gray-text">{{contact.messages[contact.messages.length - 1].date}}</span>
             </li>
           </ul>
         </div>
@@ -69,14 +70,17 @@
       <!-- CHAT -->
       <div class="chat">
 
-        <div class="chat-header">
-          <div class="contact">
+        <div class="chat-header flex-between">
+          <div class="contact flex-center">
             <img src="/img/avatar_1.jpg" alt="">
-            <span>Michele</span>
+            <div>
+              <h4>Michele</h4>
+              <p class="gray-text">Ultimo accesso</p>
+            </div>
             
           </div>
 
-          <div class="chat-option">
+          <div class="chat-option flex-center">
             <button><i class="fas fa-search"></i></button>
             <button><i class="fas fa-paperclip"></i></button>
             <button><i class="fas fa-ellipsis-v"></i></button>
@@ -84,11 +88,19 @@
         </div>
 
         <div class="chat-main">
-          <div class="user-message">Come stai?</div>
-          <div class="contact-message">Tutto ok!</div>
+          <div class="messages flex-between">
+            <div class="flex-center message sent">
+              <h4>Come stai?</h4>
+              <span class="gray-text date">date</span>
+            </div>
+            <div class="flex-center message recived">
+              <h4>Tutto ok!</h4>
+              <span class="gray-text date">date</span>
+            </div>
+          </div>
         </div>
 
-        <div class="chat-input">
+        <div class="chat-input flex-center">
           <button><i class="far fa-smile"></i></button>
           <input type="text" placeholder="Scrivi un messaggio">
           <button><i class="fas fa-microphone"></i></i></button>
@@ -102,6 +114,6 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-  <script src="script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
