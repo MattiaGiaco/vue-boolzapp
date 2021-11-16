@@ -86,12 +86,26 @@ const app = new Vue({
 					]
 				}
 			],
+			newMessage: {
+				message: '',
+				status: 'sent'
+			},
 			activeContact: 0
     },
 		methods:{
 			showContact(index) {
 				console.log(index);
 				this.activeContact = index
+			},
+			AddNewMessage() {
+				if(this.newMessage.message != 0){
+					this.contacts[this.activeContact].messages.push(this.newMessage);
+					this.newMessage= {
+						message: '',
+						status: 'sent'
+					}
+				}
+					
 			}
 		}
   })
