@@ -47,16 +47,18 @@
 
         <div class="contacts">
           <ul>
-            <li>
+            <li v-for= "(item, index) in contacts">
               <div class="contact">
-                <img src="/img/avatar_1.jpg" alt="">
+                <img :src="'/img/avatar' + item.avatar + '.jpg'" alt="">
                 <div>
-                  <span><strong>Michele</strong></span>
-                  <p class="gray-text">Lorem ipsum dolor sit amet.</p>
+                  <span><strong>{{item.name}}</strong></span>
+                  <p class="gray-text">
+                    {{item.messages[item.messages.length - 1].text.slice(0, 20)}}...
+                  </p>
                 </div>
               </div>
               <div>
-                <span class="gray-text">data</span>
+                <span class="gray-text">{{item.messages[item.messages.length - 1].date}}</span>
               </div>
             </li>
           </ul>
@@ -71,6 +73,7 @@
           <div class="contact">
             <img src="/img/avatar_1.jpg" alt="">
             <span>Michele</span>
+            
           </div>
 
           <div class="chat-option">
@@ -97,5 +100,8 @@
 
   </div>
 
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
