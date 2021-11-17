@@ -60,7 +60,7 @@
                 <div>
                   <h4>{{contact.name}}</h4>
                   <p class="gray-text">
-                    {{contact.messages[contact.messages.length - 1].message.slice(0,15)}} ...
+                    {{getLastMessage(index)}}
                   </p>
                 </div>
               </div>         
@@ -94,8 +94,9 @@
 
         <div class="chat-main">
           <div class="messages flex-between">
-            <div v-for="(message,index) in contacts[activeContact].messages" class="flex-center message"
-            :class="(message.status === 'sent') ? 'sent' : 'recived'">
+            <div v-for="(message,index) in contacts[activeContact].messages" 
+            class="flex-center message"
+            :class="message.status">
               <h4>{{message.message}}</h4>
               <span class="gray-text date">{{message.date}}</span>
             </div>

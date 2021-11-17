@@ -144,7 +144,7 @@ body{
 }
 
 .active{
-  background-color: #D9DBD5;
+  background-color: #f1f1f1;
 }
 
 .info .contacts ul li:hover{
@@ -229,7 +229,7 @@ body{
   background-color: #d5f9ba;
 }
 
-.message.recived{
+.message.received{
   align-self: flex-start;
   background-color: white;
 }
