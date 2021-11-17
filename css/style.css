@@ -125,6 +125,10 @@ body{
   border: none;
 }
 
+.info .search input[type]:focus{
+  outline: 2px solid #009688;
+}
+
 .info .contacts{
   height: calc(100% - 210px);
   overflow-y: scroll;
@@ -264,5 +268,10 @@ body{
   width: 80%;
   padding: 20px;
   border: none;
+  border-radius: 3px;
+}
+
+.chat .chat-input input[type]:focus{
+  outline: 2px solid #009688;
   border-radius: 3px;
 }

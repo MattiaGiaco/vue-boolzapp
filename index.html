@@ -52,7 +52,7 @@
           <ul>
             <li 
             class="flex-between" 
-            v-for= "(contact, index) in contacts"
+            v-for= "(contact, index) in filterContact()"
             @click="showContact(index)"
             :class="{'active' : activeContact === index}">
               <div class="contact">

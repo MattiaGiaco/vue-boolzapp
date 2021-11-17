@@ -96,7 +96,8 @@ const app = new Vue({
 				message: 'Ok!',
 				status: 'received'
 			},
-			activeContact: 0
+			activeContact: 0,
+			searchContact: ''
     },
 		methods:{
 			showContact(index) {
@@ -107,7 +108,7 @@ const app = new Vue({
 				if(this.newMessage.message != ''){
 					this.contacts[this.activeContact].messages.push(this.newMessage);
 					this.newMessage= {
-						date: '',
+						date: 'date',
 						message: '',
 						status: 'sent'
 					}
@@ -117,8 +118,8 @@ const app = new Vue({
 			addAutoMessage(){
 				this.contacts[this.activeContact].messages.push(this.autoMessage);
 				this.autoMessage= {
-					date: '',
-					message: '',
+					date: 'date',
+					message: 'Ok!',
 					status: 'received'
 				}
 			},
@@ -134,6 +135,10 @@ const app = new Vue({
 				
 				return lastDate;
 			},
+			filterContact() {
+				return this.contacts.filter(contact =>
+					contact.name.toLowerCase().includes(this.searchContact.toLowerCase()))
+			}
 		}
   })
 
