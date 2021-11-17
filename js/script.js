@@ -91,6 +91,11 @@ const app = new Vue({
 				message: '',
 				status: 'sent'
 			},
+			autoMessage: {
+				date: 'date',
+				message: 'Ok!',
+				status: 'received'
+			},
 			activeContact: 0
     },
 		methods:{
@@ -99,16 +104,36 @@ const app = new Vue({
 				this.activeContact = index
 			},
 			AddNewMessage() {
-				if(this.newMessage.message != 0){
+				if(this.newMessage.message != ''){
 					this.contacts[this.activeContact].messages.push(this.newMessage);
 					this.newMessage= {
 						date: '',
 						message: '',
 						status: 'sent'
 					}
+					setTimeout(this.addAutoMessage, 1000)
 				}
-					
-			}
+			},
+			addAutoMessage(){
+				this.contacts[this.activeContact].messages.push(this.autoMessage);
+				this.autoMessage= {
+					date: '',
+					message: '',
+					status: 'received'
+				}
+			},
+			getLastMessage(index){
+				let lastMessage = this.contacts[index].messages[this.contacts[index].messages.length - 1 ].message;
+				if(lastMessage.length > 20){
+					lastMessage = lastMessage.slice(0,20)+'...'
+				}
+				return lastMessage;
+			},
+			getLastDate(index){
+				let lastDate = this.contacts[index].messages[this.contacts[index].messages.length - 1 ].date;
+				
+				return lastDate;
+			},
 		}
   })
 
