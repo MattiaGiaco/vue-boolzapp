@@ -96,28 +96,43 @@
         <div class="chat-main">
 
           <div class="messages flex-between">
-            <div v-for="(message,index) in contacts[activeContact].messages" 
+            <div 
+            v-for="(message,index) in contacts[activeContact].messages" 
             class="message"
             :class="message.status">
-              <h4>{{message.message}}</h4>             
-              <i class="fas fa-chevron-down gray-text"></i>
-              <span class="gray-text date">{{message.date}}</span>              
+            
+              <h4>{{message.message}}</h4> 
+
+              <i
+              class="fas fa-chevron-down gray-text"
+              @click="showList(message)"></i>
+              <div class="option" v-show="showOption === message.message">
+                <ul>
+                  <li>Info messaggio</li>
+                  <li @click="removeMessage(index)">Elimina</li>
+                </ul>
+              </div>
+
+              <span class="gray-text date">{{message.date}}</span>
+
             </div>
           </div>
 
         </div>
 
         <div class="chat-input flex-center">
+
           <button><i class="far fa-smile"></i></button>
           <input 
           @keyup.enter="AddNewMessage"
           v-model="newMessage"
           type="text" placeholder="Scrivi un messaggio">
           <button><i class="fas fa-microphone"></i></i></button>
+
         </div>
         <!-- /CHAT -->
       </div>
-      <!-- WRAPPER -->
+      <!-- /WRAPPER -->
     </div>
     <!-- /#APP -->
   </div>

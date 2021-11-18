@@ -262,6 +262,32 @@ body{
   display: block;
 }
 
+.message .option{
+  position: absolute;
+  z-index: 999;
+  top: 20px;
+  right: 5px;
+  padding: 15px;
+  line-height: 30px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px gray;
+}
+
+.message .option ul{
+  list-style: none;
+}
+
+.message .option ul li{
+  color: #6a7276;
+}
+
+.message .option ul li:hover{
+  color: black;
+  cursor: pointer;
+  font-weight: 600;
+}
+
 /* chat-input */
 .chat .chat-input{
   position: absolute;

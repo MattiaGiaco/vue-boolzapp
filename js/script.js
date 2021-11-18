@@ -194,7 +194,8 @@ const app = new Vue({
 			newMessage: '',
 			autoMessage: '',
 			activeContact: 0,
-			searchContact: ''
+			searchContact: '',
+			showOption: ''
     },
 		methods:{
 			showContact(index) {
@@ -211,7 +212,7 @@ const app = new Vue({
 					this.contacts[this.activeContact].messages.push(userMessage);
 					this.newMessage = '';
 
-					setTimeout(this.addAutoMessage, 1000)
+					setTimeout(this.addAutoMessage, 3000)
 				}
 			},
 			addAutoMessage(){
@@ -237,10 +238,20 @@ const app = new Vue({
 			filterContact() {
 				return this.contacts.filter(contact =>
 					contact.name.toLowerCase().includes(this.searchContact.toLowerCase()))
+			},
+			showList(message) {
+				if(this.showOption === '') {
+					this.showOption = message.message;
+				}else {
+					this.showOption = '';
+				}
+			},
+			removeMessage(index){
+				this.contacts[this.activeContact].messages.splice(index,1)
 			}
 		}
 })
 
-dayjs.extend(window.dayjs_pligin_customParseFormat);
+dayjs.extend(window.dayjs_plugin_customParseFormat);
 
 dayjs.locale('it');
