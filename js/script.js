@@ -92,17 +92,17 @@ const app = new Vue({
 					messages: [
 						{
 							date: '10/01/2020 15:30:55',
-							message: 'Hai portato a spasso il cane?',
+							message: 'Hai staccato?',
 							status: 'sent'
 						},
 						{
 							date: '10/01/2020 15:50:00',
-							message: 'Ricordati di dargli da mangiare',
+							message: 'Ricordati il latte',
 							status: 'sent'
 						},
 						{
 							date: '10/01/2020 16:15:22',
-							message: 'Tutto fatto!',
+							message: 'Ora vado',
 							status: 'received'
 						}
 					]
@@ -124,7 +124,7 @@ const app = new Vue({
 						},
 						{
 							date: '20/03/2020 16:35:00',
-							message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+							message: 'Si! Andiamo al pub',
 							status: 'received'
 						}
 					]
@@ -135,18 +135,18 @@ const app = new Vue({
 					visible: true,
 					messages:[
 						{
-							date: '28/03/2020 10:10:40',
-							message: 'La Marianna va in campagna',
+							date: '28/03/2020 11:10:40',
+							message: 'Cristina va a Londra',
 							status: 'received'
 						},
 						{
 							date: '28/03/2020 10:20:10',
-							message: 'Sicuro di non aver sbagliato chat?',
+							message: 'Davvero?',
 							status: 'sent'
 						},
 						{
-							date: '28/03/2020 16:15:22',
-							message: 'Ah scusa!',
+							date: '28/03/2020 16:25:22',
+							message: 'Si, parte domani',
 							status: 'received'
 						}
 					]
@@ -157,13 +157,13 @@ const app = new Vue({
 					visible: true,
 					messages:[
 						{
-							date: '10/01/2020 15:30:55',
+							date: '10/01/2020 15:45:55',
 							message: 'Lo sai che ha aperto una nuova pizzeria?',
 							status: 'sent'
 						},
 						{
 							date: '10/01/2020 15:50:00',
-							message: 'Si, ma preferirei andare al cinema',
+							message: 'Ci andiamo?',
 							status: 'received'
 						}
 					]
@@ -174,7 +174,7 @@ const app = new Vue({
 					visible: true,
 					messages: [
 						{
-							date: '10/01/2020 15:30:55',
+							date: '10/01/2020 16:30:55',
 							message: 'Hai portato a spasso il cane?',
 							status: 'sent'
 						},
@@ -195,7 +195,7 @@ const app = new Vue({
 			autoMessage: '',
 			activeContact: 0,
 			searchContact: '',
-			showOption: ''
+			showOption: -1
     },
 		methods:{
 			showContact(index) {
@@ -239,15 +239,15 @@ const app = new Vue({
 				return this.contacts.filter(contact =>
 					contact.name.toLowerCase().includes(this.searchContact.toLowerCase()))
 			},
-			showList(message) {
-				if(this.showOption === '') {
-					this.showOption = message.message;
+			showList(index) {
+				if(this.showOption === -1) {
+					this.showOption = index;
 				}else {
-					this.showOption = '';
+					this.showOption = -1
 				}
 			},
 			removeMessage(index){
-				this.contacts[this.activeContact].messages.splice(index,1)
+				this.contacts[this.activeContact].messages.splice(index,1);
 			}
 		}
 })
