@@ -220,11 +220,11 @@ body{
 }
 
 .message{
-  justify-content: space-between;
+  position: relative;
   margin-top: 5px;
   width: 45%;
-  height: 50px;
-  padding: 10px;
+  height: 100%;
+  padding: 15px;
   border-radius: 10px;
 }
 
@@ -238,9 +238,22 @@ body{
   background-color: white;
 }
 
+.message h4{
+  width: 80%;
+}
+
 .message .date{
-  margin-top: 25px;
+  position: absolute;
+  right: 5px;
+  bottom: 2px;
+  align-self: flex-end;
   font-size: 10px;
+}
+
+.message i{
+  position: absolute;
+  top: 2px;
+  right: 5px;
 }
 
 /* chat-input */

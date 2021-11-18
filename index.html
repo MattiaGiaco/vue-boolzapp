@@ -80,7 +80,7 @@
             <div>
               <h4>{{contacts[activeContact].name}}</h4>
               
-              <p class="gray-text">Ultimo accesso: {{}}</p>
+              <p class="gray-text">Ultimo accesso: {{getLastDate(activeContact)}}</p>
             </div>
             
           </div>
@@ -95,10 +95,13 @@
         <div class="chat-main">
           <div class="messages flex-between">
             <div v-for="(message,index) in contacts[activeContact].messages" 
-            class="flex-center message"
+            class="message"
             :class="message.status">
               <h4>{{message.message}}</h4>
+              
+              <i class="fas fa-chevron-down gray-text"></i>
               <span class="gray-text date">{{message.date}}</span>
+              
             </div>
           </div>
         </div>
@@ -119,6 +122,12 @@
   </div>
 
 
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/plugin/customParseFormat.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/locale/it.js"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script src="js/script.js"></script>
 </body>

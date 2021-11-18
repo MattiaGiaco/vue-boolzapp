@@ -87,12 +87,12 @@ const app = new Vue({
 				}
 			],
 			newMessage: {
-				date: 'date',
+				date: dayjs().format('DD/MM/YYYY hh:mm:ss'),
 				message: '',
 				status: 'sent'
 			},
 			autoMessage: {
-				date: 'date',
+				date: dayjs().format('DD/MM/YYYY hh:mm:ss'),
 				message: 'Ok!',
 				status: 'received'
 			},
@@ -108,7 +108,7 @@ const app = new Vue({
 				if(this.newMessage.message != ''){
 					this.contacts[this.activeContact].messages.push(this.newMessage);
 					this.newMessage= {
-						date: 'date',
+						date: dayjs().format('DD/MM/YYYY hh:mm:ss'),
 						message: '',
 						status: 'sent'
 					}
@@ -118,7 +118,7 @@ const app = new Vue({
 			addAutoMessage(){
 				this.contacts[this.activeContact].messages.push(this.autoMessage);
 				this.autoMessage= {
-					date: 'date',
+					date: dayjs().format('DD/MM/YYYY hh:mm:ss'),
 					message: 'Ok!',
 					status: 'received'
 				}
@@ -140,5 +140,8 @@ const app = new Vue({
 					contact.name.toLowerCase().includes(this.searchContact.toLowerCase()))
 			}
 		}
-  })
+})
 
+dayjs.extend(window.dayjs_pligin_customParseFormat);
+
+dayjs.locale('it');
