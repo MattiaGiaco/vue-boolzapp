@@ -224,14 +224,23 @@ const app = new Vue({
 				this.contacts[this.activeContact].messages.push(receivedMessage);
 			},
 			getLastMessage(index){
-				let lastMessage = this.contacts[index].messages[this.contacts[index].messages.length - 1 ].message;
+				let lastMessage = '';
+				
+				if(this.contacts[index].messages.length > 0){
+					lastMessage = this.contacts[index].messages[this.contacts[index].messages.length - 1 ].message;
+				}
+
 				if(lastMessage.length > 20){
 					lastMessage = lastMessage.slice(0,20)+'...'
 				}
 				return lastMessage;
 			},
 			getLastDate(index){
-				let lastDate = this.contacts[index].messages[this.contacts[index].messages.length - 1 ].date;
+				let lastDate = '';
+
+				if(this.contacts[index].messages.length > 0){
+					lastDate = this.contacts[index].messages[this.contacts[index].messages.length - 1 ].date;
+				}
 				
 				return lastDate;
 			},
