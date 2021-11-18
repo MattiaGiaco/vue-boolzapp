@@ -251,9 +251,15 @@ body{
 }
 
 .message i{
+  display: none;
   position: absolute;
-  top: 2px;
-  right: 5px;
+  top: 5px;
+  right: 8px;
+  cursor: pointer;
+}
+
+.message:hover i{
+  display: block;
 }
 
 /* chat-input */
